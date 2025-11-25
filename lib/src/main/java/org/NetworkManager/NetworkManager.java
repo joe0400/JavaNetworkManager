@@ -14,7 +14,7 @@ public class NetworkManager{
 	public static final long DHCP6 = 1 << 7;
 	public static final long PPP = 1 << 8;
 	public static final long WIFI_SCAN = 1 << 9;
-       	public static final long IP4 = 1 << 10;
+	public static final long IP4 = 1 << 10;
 	public static final long IP6 = 1 << 11;
 	public static final long AUTOIP4 = 1 << 12;
 	public static final long DNS = 1 << 13;
@@ -47,10 +47,21 @@ public class NetworkManager{
 		DHCP6 | PPP | WIFI_SCAN | IP4 | IP6 | AUTOIP4 | 
 		DNS | VPN | SHARING | SUPPLICANT | AGENTS |
 		SETTING | SUSPEND | CORE | DEVICE | OLPC | 
-		WIMAX | INFINIBAND | FIREWALL |ADSL_BOND |
+		WIMAX | INFINIBAND | FIREWALL | ADSL_BOND |
 		TEAM | CONCHECK | DCB | DISPATCH | AUDIT;
 
-	//TODO: Find out what does DHCP and IP actually log at in Network Manager
+	public static final long DHCP = DHCP4 | DHCP6;
+	public static final long IP = IP4 | IP6 | AUTOIP4;
+
+
+	public native void reload(int flags);
+	
+	public native List<String> getDevices();
+	public native List<String> getAllDevices();
+
+	public native String getDeviceByIPIfcae(String iface);
+
+	public native String activateConnection(String connection, String device, String specificObject);
 
 	/**
 	 * Sets the level of the logger for the NetworkManager from D-Bus
@@ -64,4 +75,17 @@ public class NetworkManager{
 	 * */
 	public native LoggingDomain getLogging(); 
 	
-}
+	public native Pair<String, String> addAndActivateConnection(
+		Map<String,Map<String,Object>> connection,
+		String device,
+		Strinbg specific_object};
+	
+	public native void deactivateConnection(String connection);
+	
+	/**
+	 * This method is capitalized to not override the built in method in java.
+	 * */
+	public native void Sleep(boolean sleep);
+
+	public native void enable(boolean enable);
+
