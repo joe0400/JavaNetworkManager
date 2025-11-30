@@ -89,3 +89,10 @@ public class NetworkManager{
 
 	public native void enable(boolean enable);
 
+	public native Map<String, String> getPermissions();
+
+	public native int checkConnectivity();
+
+	public native int state();
+
+}
