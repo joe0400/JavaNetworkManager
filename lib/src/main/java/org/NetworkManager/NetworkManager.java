@@ -75,10 +75,10 @@ public class NetworkManager{
 	 * */
 	public native LoggingDomain getLogging(); 
 	
-	public native Pair<String, String> addAndActivateConnection(
+	public native String[] addAndActivateConnection(
 		Map<String,Map<String,Object>> connection,
 		String device,
-		Strinbg specific_object};
+		String specific_object);
 	
 	public native void deactivateConnection(String connection);
 	

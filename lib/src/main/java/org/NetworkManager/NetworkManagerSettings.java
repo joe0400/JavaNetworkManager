@@ -1,6 +1,6 @@
 package org.NetworkManager;
 
-import java.util.Map
+import java.util.Map;
 
 class NetworkManagerSettings{
 
