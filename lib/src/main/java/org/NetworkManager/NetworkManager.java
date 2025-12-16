@@ -1,6 +1,8 @@
 package org.NetworkManager;
 
 import java.util.logging.Level;
+import java.util.List;
+import java.util.Map;
 
 public class NetworkManager{
 	
@@ -43,11 +45,11 @@ public class NetworkManager{
 	
 	public static final long NONE = 0;
 	public static final long ALL = 
-		PLATFORM | RFILL | ETHER | WIFI | BT | MB | DHCP4 |
+		PLATFORM | RFKILL | ETHER | WIFI | BT | MB | DHCP4 |
 		DHCP6 | PPP | WIFI_SCAN | IP4 | IP6 | AUTOIP4 | 
 		DNS | VPN | SHARING | SUPPLICANT | AGENTS |
-		SETTING | SUSPEND | CORE | DEVICE | OLPC | 
-		WIMAX | INFINIBAND | FIREWALL | ADSL_BOND |
+		SETTINGS | SUSPEND | CORE | DEVICE | OLPC | 
+		WIMAX | INFINIBAND | FIREWALL | ADSL | BOND |
 		TEAM | CONCHECK | DCB | DISPATCH | AUDIT;
 
 	public static final long DHCP = DHCP4 | DHCP6;
